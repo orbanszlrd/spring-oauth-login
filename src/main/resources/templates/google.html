@@ -8,8 +8,18 @@
 </head>
 <body>
 
-<h1 th:text="${user.getName()}"></h1>
-<img th:src="${user.getAttribute('picture')}" src="" th:alt="${user.getAttribute('name')}" th:title="${user.getAttribute('name')}">
+<h3 th:text="${user.getName()}"></h3>
+
+<div th:text="${user.getAttribute('name')}"></div>
+<div th:text="${user.getAttribute('email')}"></div>
+
+<div>
+    <img th:src="${user.getAttribute('picture')}" th:alt="${user.getAttribute('name')}" th:title="${user.getAttribute('name')}">
+</div>
+
+<div>
+    <a href="/"><button>Back</button></a>
+</div>
 
 </body>
 </html>

@@ -9,9 +9,13 @@
 <body>
 
 <h3 th:text="${user.getName()}"></h3>
-<div th:text="${user.getAttribute('id')}"></div>
+
 <div th:text="${user.getAttribute('name')}"></div>
 <div th:text="${user.getAttribute('email')}"></div>
+
+<div>
+    <a href="/"><button>Back</button></a>
+</div>
 
 </body>
 </html>

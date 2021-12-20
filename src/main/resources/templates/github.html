@@ -10,7 +10,16 @@
 
 <h3 th:text="${user.getName()}"></h3>
 <div th:text="${user.getAttribute('login')}"></div>
-<img th:src="${user.getAttribute('avatar_url')}" src="" th:alt="${user.getAttribute('login')}">
+<div th:text="${user.getAttribute('name')}"></div>
+<div th:text="${user.getAttribute('email')}"></div>
+
+<div>
+    <img th:src="${user.getAttribute('avatar_url')}" src="" th:alt="${user.getAttribute('login')}">
+</div>
+
+<div>
+    <a href="/"><button>Back</button></a>
+</div>
 
 </body>
 </html>

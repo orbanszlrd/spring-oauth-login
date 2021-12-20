@@ -10,23 +10,38 @@
 
 <div>
     <span>
-    <a href="/oauth2/authorization/github">
-        <img src="https://img.shields.io/badge/Login%20with%20GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
-             alt="Login with GitHub" title="Login with GitHub">
-    </a>
+    <a href="/oauth2/authorization/github"><img src="https://img.shields.io/badge/Login%20with%20GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Login with GitHub" title="Login with GitHub"></a>
     </span>
     <span>
-    <a href="/oauth2/authorization/google">
-        <img src="https://img.shields.io/badge/Login%20with%20Google-EA4335?style=for-the-badge&logo=google&logoColor=white"
-             alt="Login with Google" title="Login with Google">
-    </a>
+    <a href="/oauth2/authorization/google"><img src="https://img.shields.io/badge/Login%20with%20Google-EA4335?style=for-the-badge&logo=google&logoColor=white" alt="Login with Google" title="Login with Google"></a>
     </span>
     <span>
-    <a href="/oauth2/authorization/facebook">
-        <img src="https://img.shields.io/badge/Login%20with%20Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"
-             alt="Login with Facebook" title="Login with Facebook">
+    <a href="/oauth2/authorization/facebook"><img src="https://img.shields.io/badge/Login%20with%20Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Login with Facebook" title="Login with Facebook"></a>
+    </span>
+</div>
+
+<div th:if="${user}">
+    <span th:if="${user.getAttributes().containsKey('login')}">
+    <a href="/user/github">
+        <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" title="GitHub">
     </a>
     </span>
+    <span th:if="${user.getAttributes().containsKey('picture')}">
+    <a href="/user/google">
+        <img src="https://img.shields.io/badge/Google-EA4335?style=for-the-badge&logo=google&logoColor=white" alt="Google" title="Google">
+    </a>
+    </span>
+    <span th:if="${!user.getAttributes().containsKey('login') && !user.getAttributes().containsKey('picture')}">
+    <a href="/user/facebook">
+        <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" alt="Facebook" title="Facebook">
+    </a>
+    </span>
+
+    <div>
+    <form action="/logout" method="post">
+        <button type="submit">Log out</button>
+    </form>
+    </div>
 </div>
 
 </body>
