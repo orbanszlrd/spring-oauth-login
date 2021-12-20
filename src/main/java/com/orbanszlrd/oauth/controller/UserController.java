@@ -24,7 +24,7 @@ public class UserController {
         return "google";
     }
 
-    @GetMapping("facebook")
+    @GetMapping("/facebook")
     public String facebook(@AuthenticationPrincipal OAuth2User user, Model model) {
         System.out.println(user);
         model.addAttribute("user", user);
